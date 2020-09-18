@@ -6,5 +6,9 @@ namespace Observatby\TelecastTransfer\Repository;
 
 class TelecastFromMirtvruPersistence implements ReadPersistenceInterface
 {
-    # TODO
+    public function retrieve($id): array
+    {
+        // TODO: Implement retrieve() method.
+        return [];
+    }
 }

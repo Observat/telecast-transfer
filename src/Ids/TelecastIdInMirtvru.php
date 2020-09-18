@@ -1,10 +1,11 @@
 <?php
 
 
-namespace Observatby\TelecastVault;
+namespace Observatby\TelecastTransfer\Ids;
 
 
 use InvalidArgumentException;
+use Observatby\TelecastVault\IdInterface;
 
 
 class TelecastIdInMirtvru implements IdInterface
