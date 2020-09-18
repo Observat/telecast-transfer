@@ -28,12 +28,13 @@ class TelecastRepository
             $res['title'],
             $res['shortDescription'],
             $res['description'],
-            new Leader(
-                $res['leaderTitle'],
-                $res['leaderBlockquote'],
-                $res['leaderShortDescription'],
-                $res['leaderDescription'],
-            ),
+            new Leader('', '', '', ''), # TODO
+//            new Leader(
+//                $res['leaderTitle'],
+//                $res['leaderBlockquote'],
+//                $res['leaderShortDescription'],
+//                $res['leaderDescription'],
+//            ),
             new EpisodeList([]) # TODO
         );
     }

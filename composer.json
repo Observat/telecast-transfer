@@ -14,6 +14,7 @@
     ],
     "require": {
         "php": ">=7.4",
+        "ext-pdo": "*",
         "observatby/telecast-vault": "^0.0.3"
     },
     "require-dev": {

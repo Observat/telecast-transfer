@@ -1,5 +1,6 @@
 <?php declare(strict_types=1);
 
+use Observatby\TelecastTransfer\ConnectionDTO;
 use Observatby\TelecastTransfer\Ids\TelecastIdInMirtvru;
 use Observatby\TelecastTransfer\Repository\DummyPersistence;
 use Observatby\TelecastTransfer\Repository\TelecastFromMirtvruPersistence;
@@ -10,23 +11,33 @@ class TelecastRepositoryTest extends TestCase
 {
     public function testHasCreatedTelecastRepository()
     {
-        $repository1 = new TelecastRepository(new DummyPersistence(), new DummyPersistence());
+        $repository1 = new TelecastRepository(
+            new DummyPersistence(),
+            new DummyPersistence()
+        );
         $this->assertInstanceOf(TelecastRepository::class, $repository1);
 
-        $repository2 = new TelecastRepository(new TelecastFromMirtvruPersistence(), new DummyPersistence());
+        $repository2 = new TelecastRepository(
+            new TelecastFromMirtvruPersistence(new ConnectionDTO('', '', '')),
+            new DummyPersistence()
+        );
         $this->assertInstanceOf(TelecastRepository::class, $repository2);
     }
 
     public function testReadTelecastFromMirtvru()
     {
-        $mockReadPersistence = $this->getMockBuilder(TelecastFromMirtvruPersistence::class)
-            ->onlyMethods(['retrieve'])
-            ->getMock();
-        $mockReadPersistence->expects($this->once())->method('retrieve');
+        $id = 1;
+        $mockReadPersistence = $this->createMock(TelecastFromMirtvruPersistence::class);
+        $mockReadPersistence
+            ->expects($this->once())
+            ->method('retrieve')
+            ->willReturn(['title' => 'titleMock', 'shortDescription' => '', 'description' => '']);
 
         /** @var TelecastFromMirtvruPersistence $mockReadPersistence */
         $repository = new TelecastRepository($mockReadPersistence, new DummyPersistence());
 
-        $repository->findById(TelecastIdInMirtvru::fromScalar(68));
+        $telecast = $repository->findById(TelecastIdInMirtvru::fromScalar($id));
+
+        $this->assertEquals('titleMock', $telecast->getTitle());
     }
 }
