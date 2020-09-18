@@ -1,6 +1,6 @@
 <?php
 
-namespace Observatby\TelecastTransfer;
+namespace Observatby\TelecastTransfer\Repository;
 
 interface WritePersistenceInterface
 {
