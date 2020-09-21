@@ -9,7 +9,8 @@ use Observatby\TelecastTransfer\TelecastTransferException;
 use PDO;
 use PDOStatement;
 
-class TelecastFromMirtvruPersistence implements ReadPersistenceInterface
+
+class LeaderFromMirtvruPersistence implements ReadPersistenceInterface
 {
     use PrepareStatementTrait;
 
@@ -17,17 +18,13 @@ class TelecastFromMirtvruPersistence implements ReadPersistenceInterface
                                title,
                                description as shortDescription,
                                text as description,
-                               age_restriction
-                           FROM article_broadcast
-                           WHERE article_id = ?";
+                               quote
+                           FROM persona
+                           WHERE persona_id = ?";
 
     private ConnectionDTO $connectionConfig;
     private PDOStatement $sth;
 
-    /**
-     * TelecastFromMirtvruPersistence constructor.
-     * @param ConnectionDTO $connectionConfig
-     */
     public function __construct(ConnectionDTO $connectionConfig)
     {
         $this->connectionConfig = $connectionConfig;
