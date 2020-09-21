@@ -16,4 +16,8 @@ class DummyPersistence implements ReadPersistenceInterface, WritePersistenceInte
         return [];
     }
 
+    public function retrieveList($parentId): array
+    {
+        return [];
+    }
 }

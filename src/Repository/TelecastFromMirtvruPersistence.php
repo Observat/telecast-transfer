@@ -48,4 +48,9 @@ class TelecastFromMirtvruPersistence implements ReadPersistenceInterface
 
         return $res;
     }
+
+    public function retrieveList($parentId): array
+    {
+        return [];// TODO: Implement retrieveList() method.
+    }
 }

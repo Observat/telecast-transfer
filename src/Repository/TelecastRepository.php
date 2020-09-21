@@ -5,8 +5,8 @@ namespace Observatby\TelecastTransfer\Repository;
 
 
 use Observatby\TelecastTransfer\Ids\TelecastIdInMirtvru;
+use Observatby\TelecastTransfer\ModelListProxy\LeaderListProxy;
 use Observatby\TelecastVault\Models\EpisodeList;
-use Observatby\TelecastVault\Models\Leader;
 use Observatby\TelecastVault\Models\Telecast;
 
 class TelecastRepository
@@ -28,13 +28,7 @@ class TelecastRepository
             $res['title'],
             $res['shortDescription'],
             $res['description'],
-            new Leader('', '', '', ''), # TODO
-//            new Leader(
-//                $res['leaderTitle'],
-//                $res['leaderBlockquote'],
-//                $res['leaderShortDescription'],
-//                $res['leaderDescription'],
-//            ),
+            new LeaderListProxy($id, new LeaderRepository(new DummyPersistence(), new DummyPersistence())), # TODO not DummyPersistence
             new EpisodeList([]) # TODO
         );
     }

@@ -5,6 +5,7 @@ namespace Observatby\TelecastTransfer\Repository;
 
 
 use Observatby\TelecastTransfer\Ids\LeaderIdInMirtvru;
+use Observatby\TelecastTransfer\Ids\TelecastIdInMirtvru;
 use Observatby\TelecastVault\Models\Leader;
 
 
@@ -29,5 +30,26 @@ class LeaderRepository
             $res['shortDescription'],
             $res['description'],
         );
+    }
+
+    /**
+     * @param TelecastIdInMirtvru $id
+     * @return Leader[]
+     */
+    public function findAllByTelecastId(TelecastIdInMirtvru $id): array
+    {
+        $res = $this->readPersistence->retrieveList($id->toScalar());
+
+        $leaders = [];
+        foreach ($res as $row) {
+            $leaders[] = new Leader(
+                $row['title'],
+                $row['quote'],
+                $row['shortDescription'],
+                $row['description'],
+            );
+        }
+
+        return $leaders;
     }
 }
