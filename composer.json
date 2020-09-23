@@ -15,7 +15,7 @@
     "require": {
         "php": ">=7.4",
         "ext-pdo": "*",
-        "observatby/telecast-vault": "^0.0.4"
+        "observatby/telecast-vault": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.0"

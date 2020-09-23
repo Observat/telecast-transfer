@@ -4,15 +4,15 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "168bd261846f172065a75d7a7f084c5c",
+    "content-hash": "5997a5d90538df7c84882e72ce384eb2",
     "packages": [
         {
             "name": "observatby/telecast-vault",
-            "version": "0.0.4",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Observat/telecast-vault",
-                "reference": "21efca01db6ffd13d4a9b8b38c71b94bb01c2f17"
+                "reference": "e908c49ebfadc66285990e1699d821a21bd5cb5c"
             },
             "require": {
                 "php": ">=7.4"
@@ -38,7 +38,7 @@
             ],
             "description": "Компонент-база для описания и видео всех передач",
             "homepage": "https://github.com/Observat/telecast-vault",
-            "time": "2020-09-21T11:41:33+00:00"
+            "time": "2020-09-23T13:29:21+00:00"
         }
     ],
     "packages-dev": [
@@ -1825,7 +1825,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "observatby/telecast-vault": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
