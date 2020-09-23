@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Observatby\TelecastTransfer\Repository;
+namespace Observatby\TelecastTransfer\Repository\Persistence;
 
 
 use Observatby\TelecastTransfer\TelecastTransferException;

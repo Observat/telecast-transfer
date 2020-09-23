@@ -2,6 +2,7 @@
 
 namespace Observatby\TelecastTransfer\ModelListProxy;
 
+use ArrayIterator;
 use Observatby\TelecastTransfer\Ids\TelecastIdInMirtvru;
 use Observatby\TelecastTransfer\Repository\LeaderRepository;
 use Observatby\TelecastVault\Models\Leader;
@@ -17,7 +18,7 @@ class LeaderListProxy implements LeaderListInterface
     private array $leaders;
 
     /**
-     * EpisodeListProxy constructor.
+     * LeaderListProxy constructor.
      * @param TelecastIdInMirtvru $parentId
      * @param LeaderRepository $repository
      */
@@ -36,8 +37,11 @@ class LeaderListProxy implements LeaderListInterface
         return new ArrayIterator($this->leaders);
     }
 
-    private function loadList(): void
+    public function loadList(): self
     {
         $this->leaders = $this->repository->findAllByTelecastId($this->parentId);
+        $this->loaded = true;
+
+        return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
 
-namespace Observatby\TelecastTransfer\Repository;
+namespace Observatby\TelecastTransfer\Repository\Persistence;
 
+
+use Observatby\TelecastTransfer\Repository\ReadPersistenceInterface;
+use Observatby\TelecastTransfer\Repository\WritePersistenceInterface;
 
 class DummyPersistence implements ReadPersistenceInterface, WritePersistenceInterface
 {

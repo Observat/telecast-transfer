@@ -2,8 +2,8 @@
 
 use Observatby\TelecastTransfer\ConnectionDTO;
 use Observatby\TelecastTransfer\Ids\TelecastIdInMirtvru;
-use Observatby\TelecastTransfer\Repository\DummyPersistence;
-use Observatby\TelecastTransfer\Repository\TelecastFromMirtvruPersistence;
+use Observatby\TelecastTransfer\Repository\Persistence\DummyPersistence;
+use Observatby\TelecastTransfer\Repository\Persistence\TelecastFromMirtvruPersistence;
 use Observatby\TelecastTransfer\Repository\TelecastRepository;
 use PHPUnit\Framework\TestCase;
 

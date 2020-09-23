@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
 use Observatby\TelecastTransfer\Ids\LeaderIdInMirtvru;
-use Observatby\TelecastTransfer\Repository\DummyPersistence;
-use Observatby\TelecastTransfer\Repository\LeaderFromMirtvruPersistence;
 use Observatby\TelecastTransfer\Repository\LeaderRepository;
+use Observatby\TelecastTransfer\Repository\Persistence\DummyPersistence;
+use Observatby\TelecastTransfer\Repository\Persistence\LeaderFromMirtvruPersistence;
 use PHPUnit\Framework\TestCase;
 
 class LeaderRepositoryTest extends TestCase
