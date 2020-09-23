@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false">
+    <php>
+        <env name="DB_CONNECTION" value="DB_CONNECTION"/>
+        <env name="DB_USER" value="DB_USER"/>
+        <env name="DB_PASSWORD" value="DB_PASSWORD"/>
+        <env name="DB_MIRTVRU_TELECAST_ID" value="0"/>
+    </php>
+</phpunit>

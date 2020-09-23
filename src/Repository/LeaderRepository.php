@@ -44,7 +44,7 @@ class LeaderRepository
         foreach ($res as $row) {
             $leaders[] = new Leader(
                 $row['title'],
-                $row['quote'],
+                $row['quote'] ?? '',
                 $row['shortDescription'],
                 $row['description'],
             );

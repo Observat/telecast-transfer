@@ -13,19 +13,25 @@ class LeaderListProxy implements LeaderListInterface
 {
     private bool $loaded = false;
     private TelecastIdInMirtvru $parentId;
-    private LeaderRepository $repository;
+    private ?LeaderRepository $repository;
     /** @var Leader[] */
     private array $leaders;
 
     /**
      * LeaderListProxy constructor.
      * @param TelecastIdInMirtvru $parentId
-     * @param LeaderRepository $repository
+     * @param ?LeaderRepository $repository
      */
-    public function __construct(TelecastIdInMirtvru $parentId, LeaderRepository $repository)
+    public function __construct(TelecastIdInMirtvru $parentId, ?LeaderRepository $repository = null)
     {
         $this->parentId = $parentId;
         $this->repository = $repository;
+    }
+
+    public function setRepository(?LeaderRepository $repository): LeaderListProxy
+    {
+        $this->repository = $repository;
+        return $this;
     }
 
     public function getIterator()
@@ -37,7 +43,7 @@ class LeaderListProxy implements LeaderListInterface
         return new ArrayIterator($this->leaders);
     }
 
-    public function loadList(): self
+    private function loadList(): self
     {
         $this->leaders = $this->repository->findAllByTelecastId($this->parentId);
         $this->loaded = true;
