@@ -11,25 +11,25 @@ use PDO;
 use PDOStatement;
 
 
-class LeaderFromMirtvruPersistence implements ReadPersistenceInterface
+class EpisodeFromMirtvruPersistence implements ReadPersistenceInterface
 {
     use PrepareStatementTrait;
 
     private const QUERY = "SELECT
                                title,
-                               description as shortDescription,
-                               text as description,
-                               quote
-                           FROM persona
-                           WHERE persona_id = ?";
+                               description,
+                               text,
+                               age_restriction as ageRestriction
+                           FROM video
+                           WHERE video_id = ?";
     private const QUERY_LIST = "SELECT
                                title,
-                               description as shortDescription,
-                               text as description,
-                               quote
-                           FROM persona_used inner join persona p on persona_used.persona_id = p.persona_id
-                           WHERE entity=? AND entity_id = ?
-                           ORDER BY persona_used_id ASC";
+                               description,
+                               text,
+                               age_restriction as ageRestriction
+                           FROM video
+                           WHERE article_broadcast_id = ?
+                           ORDER BY video_id DESC";
 
     private ConnectionDTO $connectionConfig;
     private PDOStatement $sth;
@@ -64,7 +64,7 @@ class LeaderFromMirtvruPersistence implements ReadPersistenceInterface
     {
         $this->prepareStatement(self::QUERY_LIST);
 
-        $this->sth->execute(['broadcast', $parentId]);
+        $this->sth->execute([$parentId]);
         $res = $this->sth->fetchAll(PDO::FETCH_ASSOC);
         $this->sth->closeCursor();
 

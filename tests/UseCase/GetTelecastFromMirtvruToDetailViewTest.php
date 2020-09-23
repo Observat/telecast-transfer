@@ -22,5 +22,7 @@ class GetTelecastFromMirtvruToDetailViewTest extends TestCase
         $this->assertEquals("Вместе", $telecastDto->title);
         $this->assertEquals("Екатерина Абрамова", ($telecastDto->leaders)[0]->title);
         $this->assertEquals("Хобби — большой теннис, кулинария.", ($telecastDto->leaders)[0]->quote);
+        $this->assertGreaterThan(100, count($telecastDto->episodes));
+        $this->assertStringContainsString("«Вместе» от ", ($telecastDto->episodes)[0]->title);
     }
 }
